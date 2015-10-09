@@ -1,18 +1,18 @@
-persons(0, []):- 
+persons(0, []):-
   !.
-persons(N, [(Person, Color, Drink, Smoke, Animal)|T]):- 
+persons(N, [(Person, Color, Drink, Smoke, Animal)|T]):-
   N1 is N-1, persons(N1, T).
-person(1, [H|_], H):- 
-  !. 
-person(N, [_|T], R):- 
+person(1, [H|_], H):-
+  !.
+person(N, [_|T], R):-
   N1 is N-1, person(N1, T, R).
 
-hint2([(brit, red, _, _, _)|_]). 
-hint2([_|T]):- 
+hint2([(brit, red, _, _, _)|_]).
+hint2([_|T]):-
   hint2(T).
 
 hint3([(span, _, _, _, dog)|_]).
-hint3([_|T]):- 
+hint3([_|T]):-
   hint3(T).
 
 hint4([(_, green, coffee, _, _)|_]).
@@ -71,9 +71,9 @@ question2([_|T]):-
   question2(T).
 
 solution(People):-
-  persons(5, People), 
-  hint2(People), 
-  hint3(People), 
+  persons(5, People),
+  hint2(People),
+  hint3(People),
   hint4(People),
   hint5(People),
   hint6(People),
@@ -89,4 +89,4 @@ solution(People):-
   question1(People),
   question2(People).
 
-
+% solution(People). to run
